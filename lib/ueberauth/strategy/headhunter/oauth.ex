@@ -32,7 +32,7 @@ defmodule Ueberauth.Strategy.Headhunter.OAuth do
     client = OAuth2.Client.new(opts)
 
     client
-    |> OAuth2.Client.put_header("User-Agent", "MyApp/0.1 (glibin.v@gmail.com)")
+    |> OAuth2.Client.put_header("User-Agent", "ElixirApp/0.1 (glibin.v@gmail.com)")
     |> OAuth2.Client.put_serializer("application/json", json_library)
   end
 

@@ -80,9 +80,9 @@ defmodule Ueberauth.Strategy.Headhunter do
     %Credentials{
       token: token.access_token,
       refresh_token: token.refresh_token,
-      expires_at: (DateTime.utc_now() |> DateTime.to_unix()) + token.expires_in,
+      expires_at: (DateTime.utc_now() |> DateTime.to_unix()) + token.expires_at,
       token_type: token.token_type,
-      expires: !!token.expires_in,
+      expires: !!token.expires_at,
       #      other: %{api_domain: token.other_params["api_domain"]},
       scopes: scopes
     }
@@ -131,7 +131,7 @@ defmodule Ueberauth.Strategy.Headhunter do
       {:ok, %OAuth2.Response{status_code: 401, body: _body}} ->
         set_errors!(conn, [error("token", "unauthorized")])
 
-      {:ok, %OAuth2.Response{status_code: status_code, body: %{"data" => user}}}
+      {:ok, %OAuth2.Response{status_code: status_code, body: user}}
       when status_code in 200..399 ->
         put_private(conn, :headhunter_user, user)
 
@@ -142,7 +142,6 @@ defmodule Ueberauth.Strategy.Headhunter do
         set_errors!(conn, [error("OAuth2", reason)])
 
       {:error, error} ->
-        IO.inspect(error)
         set_errors!(conn, [error("OAuth2", "uknown error")])
     end
   end
