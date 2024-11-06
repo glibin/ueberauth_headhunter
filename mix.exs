@@ -2,7 +2,7 @@ defmodule Ueberauth.Headhunter.Mixfile do
   use Mix.Project
 
   @source_url "https://github.com/glibin/ueberauth_headhunter"
-  @version "0.0.1"
+  @version "0.0.2"
 
   def project do
     [
