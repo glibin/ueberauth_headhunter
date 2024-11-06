@@ -28,10 +28,10 @@ defmodule Ueberauth.Headhunter.Mixfile do
     [
       {:ueberauth, "~> 0.10"},
       {:oauth2, "~> 2.0"},
-      {:jason, "~> 1.3"},
-      {:credo, "~> 0.8.10", only: [:dev, :test]},
-      {:ex_doc, ">= 0.24.2", only: :dev, runtime: false},
-      {:mock, "~> 0.3", only: :test}
+      {:jason, "~> 1.4"},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.34", only: :dev, runtime: false},
+      {:mock, "~> 0.3.0", only: :test}
     ]
   end
 
