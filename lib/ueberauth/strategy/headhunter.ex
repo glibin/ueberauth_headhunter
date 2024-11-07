@@ -137,7 +137,7 @@ defmodule Ueberauth.Strategy.Headhunter do
       {:error, %OAuth2.Response{body: %{"message" => reason}}} ->
         set_errors!(conn, [error("OAuth2", reason)])
 
-      {:error, error} ->
+      {:error, _error} ->
         set_errors!(conn, [error("OAuth2", "uknown error")])
     end
   end

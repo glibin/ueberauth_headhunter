@@ -9,7 +9,7 @@ defmodule Ueberauth.Headhunter.Mixfile do
       app: :ueberauth_headhunter,
       version: @version,
       name: "Überauth Headhunter",
-      elixir: "~> 1.3",
+      elixir: "~> 1.11",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       package: package(),
@@ -20,7 +20,7 @@ defmodule Ueberauth.Headhunter.Mixfile do
 
   def application do
     [
-      applications: [:logger, :oauth2, :ueberauth]
+      extra_applications: [:logger, :oauth2, :ueberauth]
     ]
   end
 
@@ -30,7 +30,7 @@ defmodule Ueberauth.Headhunter.Mixfile do
       {:oauth2, "~> 2.0"},
       {:jason, "~> 1.4"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:ex_doc, "~> 0.34", only: :dev, runtime: false},
+      {:ex_doc, ">= 0.0.0", only: [:dev], runtime: false},
       {:mock, "~> 0.3.0", only: :test}
     ]
   end
