@@ -74,8 +74,6 @@ defmodule Ueberauth.Strategy.Headhunter do
   """
   def credentials(conn) do
     token = conn.private.headhunter_token
-    scope_string = token.other_params["scope"] || ""
-    scopes = String.split(scope_string, ",")
 
     %Credentials{
       token: token.access_token,
@@ -83,8 +81,6 @@ defmodule Ueberauth.Strategy.Headhunter do
       expires_at: (DateTime.utc_now() |> DateTime.to_unix()) + token.expires_at,
       token_type: token.token_type,
       expires: !!token.expires_at,
-      #      other: %{api_domain: token.other_params["api_domain"]},
-      scopes: scopes
     }
   end
 
