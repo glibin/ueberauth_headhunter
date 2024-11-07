@@ -15,7 +15,7 @@
     ```elixir
     def deps do
       [
-        {:ueberauth_headhunter, "~> 0.0.1"}
+        {:ueberauth_headhunter, "~> 0.0.3"}
       ]
     end
     ```
