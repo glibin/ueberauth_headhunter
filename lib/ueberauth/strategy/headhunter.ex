@@ -80,7 +80,7 @@ defmodule Ueberauth.Strategy.Headhunter do
       refresh_token: token.refresh_token,
       expires_at: (DateTime.utc_now() |> DateTime.to_unix()) + token.expires_at,
       token_type: token.token_type,
-      expires: !!token.expires_at,
+      expires: !!token.expires_at
     }
   end
 
